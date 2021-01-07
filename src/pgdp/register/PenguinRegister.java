@@ -53,7 +53,7 @@ public class PenguinRegister {
         PenguinRegister node = this;
         name = name.toUpperCase();
         for (int i = 1; i <= name.length(); i++) {
-            int intCurrentChar = name.charAt(i - 1) - 65;
+            int intCurrentChar = name.charAt(i - 1) - 'A';
             if(node.children[intCurrentChar]==null) return null;
             else {
                 node =(PenguinRegister) children[intCurrentChar];

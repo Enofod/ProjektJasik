@@ -37,7 +37,7 @@ public class PenguinRegister {
         PenguinRegister node = this;
         for (int i = 1; i <= name.length(); i++) {
             //berechnung des zugehörigen Arrays
-            int intCurrentChar = name.charAt(i - 1) - 65;
+            int intCurrentChar = name.charAt(i - 1) - 'A';
             String strgCurrChar = valueOf((char) intCurrentChar);
             if(node.children[intCurrentChar]==null)node.children[intCurrentChar] = new PenguinRegister();
             if (i == name.length()) {
@@ -113,8 +113,8 @@ public class PenguinRegister {
             register.setPenguin(null);
             return r;
         }
-        if (register.children[name.charAt(0) - 65] != null)
-            return removeHelper(register.children[name.charAt(0) - 65], name.substring(1));
+        if (register.children[name.charAt(0) - 'A'] != null)
+            return removeHelper(register.children[name.charAt(0) - 'A'], name.substring(1));
         else return null;
     }
     void removeHelper2(PenguinRegister register) {
@@ -154,7 +154,7 @@ public class PenguinRegister {
     PenguinRegister prefixHelper(PenguinRegister register, String prefix) {
         if (prefix.isEmpty()) return register;
         else {
-            PenguinRegister r = register.children[prefix.charAt(0) - 65];
+            PenguinRegister r = register.children[prefix.charAt(0) - 'A'];
             if (r == null) return null;
             return r.prefixHelper(r, prefix.substring(1));
 

@@ -52,11 +52,11 @@ public class PenguinRegister {
    public Penguin get(String name) {
         PenguinRegister node = this;
         name = name.toUpperCase();
-        for (int i = 1; i <= name.length(); i++) {
-            int intCurrentChar = name.charAt(i - 1) - 'A';
+        for (int i = 0; i < name.length(); i++) {
+            int intCurrentChar = name.charAt(i) - 'A';
             if(node.children[intCurrentChar]==null) return null;
             else {
-                node =(PenguinRegister) children[intCurrentChar];
+                node =(PenguinRegister) node.children[intCurrentChar];
             }
 
         }
@@ -65,6 +65,7 @@ public class PenguinRegister {
 
     //wenn get null dann false
    public boolean contains(String name) {
+        name= name.toUpperCase();
         return (get(name)!=null);
     }
 
@@ -118,8 +119,10 @@ public class PenguinRegister {
         else return null;
     }
     void removeHelper2(PenguinRegister register) {
+        // remove the paths leading to the removed penguin
         for (int i = 0; i <= 25; i++) {
-            if (register.children[i].size() == 0) register.children[i]=null;
+            if(register.children[i]==null)return;
+            else if (register.children[i].size() == 0) register.children[i]=null;
             else removeHelper2(register.children[i]);
         }
     }

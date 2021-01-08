@@ -143,7 +143,7 @@ public class PenguinRegister {
         for (PenguinRegister r : register.children) {
             if (r != null) {
                 EntryList t = getAllHelper(r, Elist);
-                for (Entry e : t) {
+                for (Entry e : getAllHelper(this,t)) {
                     Elist.add(e);
                 }
             }

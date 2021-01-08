@@ -96,7 +96,7 @@ public class PenguinRegister {
             PenguinRegister r = register.children[i];
             if (r != null) {
                 String s = findNameHelper2(r, pengu);
-                if (s != null) return (((char) ('A' + i)) + s);
+                if (s != null) return (""+((char) ('A' + i)) + s);
             }
 
         }

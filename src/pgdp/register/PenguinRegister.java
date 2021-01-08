@@ -91,11 +91,12 @@ public class PenguinRegister {
         return name;
     }
     String findNameHelper2(PenguinRegister register,Penguin pengu) {
+        String s = "";
         if (register.getPenguin() == pengu) return "";
         for (int i = 0; i <= 25; i++) {
             PenguinRegister r = register.children[i];
             if (r != null) {
-                String s = findNameHelper2(r, pengu);
+                s = findNameHelper2(r, pengu);
                 if (s != null) return (""+((char) ('A' + i)) + s);
             }
 

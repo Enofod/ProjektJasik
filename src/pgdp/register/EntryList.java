@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EntryList implements Iterable<Entry> {
+
     protected List<Entry> list = new ArrayList<>();
 
     public boolean add(Entry entry) {

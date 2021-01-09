@@ -252,14 +252,15 @@ public class PenguinRegister {
     }
     //
     EntryList tinder2(PenguinRegister register,String pattern){
-        EntryList Elist = new EntryList()();
-        if(PenguinRegister==null) return Elist;
+        EntryList Elist = new EntryList();
+        if(register==null) return Elist;
         else if(pattern=="") return getAllTinderHelper(this,Elist);
         else if(pattern.charAt(0)!='.'){
             if(register.children[pattern.charAt(0)-'A']!=null){
                 if(register.children[pattern.charAt(0)-'A'].getPenguin()!=null) return getAllTinderHelper(this,Elist);
             }
         }
+        return null;
     }
 
     EntryList tinder(PenguinRegister register, String pattern) {
